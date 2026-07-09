@@ -398,11 +398,6 @@
 [Generate by superfamily] Superfamily=<LDL receptor-like superfamily, Sushi/SCR/CCP superfamily>
 [Generate by superfamily] Superfamily=<LDL receptor-like superfamily, Sushi/SCR/CCP superfamily>
 [Generate by superfamily] Superfamily=<LDL receptor-like superfamily, Sushi/SCR/CCP superfamily>
-[Generate by superfamily] 
-[Generate by superfamily] 
-[Generate by superfamily] 
-[Generate by superfamily] 
-[Generate by superfamily] 
 [Generate by superfamily] Superfamily=<HPr-like superfamily, CheY-like superfamily>
 [Generate by superfamily] Superfamily=<HPr-like superfamily, CheY-like superfamily>
 [Generate by superfamily] Superfamily=<HPr-like superfamily, CheY-like superfamily>
@@ -2498,3 +2493,8 @@
 [Generate by superfamily] Superfamily=<cysteine-rich domain superfamily, Chaperone J-domain superfamily>
 [Generate by superfamily] Superfamily=<cysteine-rich domain superfamily, Chaperone J-domain superfamily>
 [Generate by superfamily] Superfamily=<cysteine-rich domain superfamily, Chaperone J-domain superfamily>
+[Generate by superfamily] Superfamily=<Homeobox-like domain superfamily, C-terminal domain superfamily, DNA-binding domain superfamily>
+[Generate by superfamily] Superfamily=<Homeobox-like domain superfamily, C-terminal domain superfamily, DNA-binding domain superfamily>
+[Generate by superfamily] Superfamily=<Homeobox-like domain superfamily, C-terminal domain superfamily, DNA-binding domain superfamily>
+[Generate by superfamily] Superfamily=<Homeobox-like domain superfamily, C-terminal domain superfamily, DNA-binding domain superfamily>
+[Generate by superfamily] Superfamily=<Homeobox-like domain superfamily, C-terminal domain superfamily, DNA-binding domain superfamily>

@@ -1,3 +1,5 @@
 src/ProLLaMA
 output*
 checkpoints/
+ProLLaMA/scripts/prollama_pinal_input.tsv
+scripts/seqs_esmfold_results
