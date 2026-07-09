@@ -1,5 +1,6 @@
 src/ProLLaMA
 output*
+!output.txt
 checkpoints/
-ProLLaMA/scripts/prollama_pinal_input.tsv
 scripts/seqs_esmfold_results
+*__pycache__*

@@ -1,16 +1,19 @@
-import os
 import argparse
+import os
 import sys
-sys.path.append("/storage/yuanfajieLab/yuanfajie/my_project/analysis/clip_score")
-from model.claprot.claprot_trimodal_model import CLAProtTrimodalModel
+
+import json
+import numpy as np
 import torch
 from tqdm import tqdm
-import os
-import numpy as np
-import json
+
+PROTREKCODEPATH = os.environ["PROTREKCODEPATH"]
+PROTREKWEIGHT = os.environ["PROTREKWEIGHT"]
+
+sys.path.append(PROTREKCODEPATH)
+from model.claprot.claprot_trimodal_model import CLAProtTrimodalModel
 
 def load_txt_dir(txt_dir):
-    # loading ground truth structure token, sampled structrue token and descriptions 
     gts = {}
     descriptions = {}
     samples = {}
@@ -58,10 +61,10 @@ def evaluate_clip_score(model, seq, pred_text, seq_type='prot'):
 def load_CLIP():
     # loading model
     model_config = {
-        "protein_config": "/storage/yuanfajieLab/yuanfajie/my_project/analysis/ProTrekWeight/esm2_t33_650M_UR50D",
-        "text_config": "/storage/yuanfajieLab/yuanfajie/my_project/analysis/ProTrekWeight/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext",
-        "structure_config": "/storage/yuanfajieLab/yuanfajie/my_project/analysis/ProTrekWeight/foldseek_t30_150M",
-        "from_checkpoint": "/storage/yuanfajieLab/yuanfajie/my_project/analysis/ProTrekWeight/ProTrek_650M_UniRef50.pt",
+        "protein_config": f"{PROTREKWEIGHT}/esm2_t33_650M_UR50D",
+        "text_config": f"{PROTREKWEIGHT}/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext",
+        "structure_config": f"{PROTREKWEIGHT}/foldseek_t30_150M",
+        "from_checkpoint": f"{PROTREKWEIGHT}/ProTrek_650M_UniRef50.pt",
         "load_protein_pretrained": False,
         "load_text_pretrained": False,
     }
@@ -98,15 +101,15 @@ def main():
 
     print(f"Mean score: {np.mean(mean_scores)}")
 
-    results_path = jsonl_path.replace(".jsonl", "protrek_score.json")
+    results_path = jsonl_path.replace(".jsonl", "_protrek_score.json")
     
     if os.path.exists(results_path):
         with open(results_path, 'r') as f:
             result_dic = json.load(f)
     else:
         result_dic = {}
-    result_dic[f"mean sequence text clip score"] = float(np.mean(mean_scores))
-    result_dic[f"clip score"] = idx2score
+    result_dic[f"mean protrek score"] = float(np.mean(mean_scores))
+    result_dic[f"protrek score"] = idx2score
     with open(results_path, 'w') as f:
         json.dump(result_dic, f, indent=4)
     
